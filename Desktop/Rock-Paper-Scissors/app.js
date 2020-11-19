@@ -31,23 +31,14 @@ function getComputerChoice()
 {
 const choice = ['r', 'p' , 's'];
 const randomNumber = Math.floor((Math.random() * 3 ));
-
-
-console.log("Random Number : > " + randomNumber);
-
-
 return choice[randomNumber];
 }
-
-
-//console.log("Computer choice : >" + getComputerChoice());
-
 
 function convertToWord(letter)
 {
 if(letter==="r") return "Rock";
 if(letter==="p") return "Paper";
-else "Scissors";
+if(letter==="s") return "Scissors";
 }
 
 function win(userChoice,computerChoice)
@@ -78,18 +69,9 @@ const smallCompWord = "comp".fontsize(3).sub();
 result_p.innerHTML= `${convertToWord(userChoice)}${smallUserWord} equals to  ${convertToWord(computerChoice)}${smallCompWord}. It's a draw !`;
 }
 
-
-//console.log("Computer Choice : > " + getComputerChoice());
-
-
-
-
 function game(userChoice)
 {
 const computerChoice = getComputerChoice();
-
-console.log("Computer Choice : > " + computerChoice);
-
 switch (userChoice + computerChoice)
 {
 case "rs":
