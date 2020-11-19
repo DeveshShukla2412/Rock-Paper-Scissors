@@ -8,23 +8,21 @@ const rock_div=document.querySelector("#r");
 const paper_div=document.querySelector("#p");
 const scissors_div=document.querySelector("#s");
 
-
-
 function main()
 {
 rock_div.addEventListener('click',function(){
 game("r");
-})
+});
 
 paper_div.addEventListener('click',function()
 {
 game("p");
-})
+});
 
 scissors_div.addEventListener('click',function()
 {
 game("s");
-})
+});
 }
 
 main();
@@ -33,15 +31,23 @@ function getComputerChoice()
 {
 const choice = ['r', 'p' , 's'];
 const randomNumber = Math.floor((Math.random() * 3 ));
+
+
+console.log("Random Number : > " + randomNumber);
+
+
 return choice[randomNumber];
 }
+
+
+//console.log("Computer choice : >" + getComputerChoice());
+
 
 function convertToWord(letter)
 {
 if(letter==="r") return "Rock";
 if(letter==="p") return "Paper";
 else "Scissors";
-
 }
 
 function win(userChoice,computerChoice)
@@ -56,20 +62,33 @@ result_p.innerHTML= `${convertToWord(userChoice)}${smallUserWord} Beats  ${conve
 
 function lose(userChoice,computerChoice)
 {
-console.log("LOST");
+computerScore++;
+userScore_span.innerHTML=userScore;
+computerScore_span.innerHTML=computerScore;
+const smallUserWord = "user".fontsize(3).sub();
+const smallCompWord = "comp".fontsize(3).sub();
+result_p.innerHTML= `${convertToWord(userChoice)}${smallUserWord} loses to  ${convertToWord(computerChoice)}${smallCompWord}. You Lost !`;
+
 }
 
 function draw(userChoice,computerChoice)
 {
-console.log("DRAW");
+const smallUserWord = "user".fontsize(3).sub();
+const smallCompWord = "comp".fontsize(3).sub();
+result_p.innerHTML= `${convertToWord(userChoice)}${smallUserWord} equals to  ${convertToWord(computerChoice)}${smallCompWord}. It's a draw !`;
 }
 
 
-getComputerChoice();
+//console.log("Computer Choice : > " + getComputerChoice());
+
+
+
 
 function game(userChoice)
 {
 const computerChoice = getComputerChoice();
+
+console.log("Computer Choice : > " + computerChoice);
 
 switch (userChoice + computerChoice)
 {
